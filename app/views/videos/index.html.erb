@@ -1,35 +1,52 @@
-<h1><center>ALL VIDEOS</center></h1>
-<%=link_to 'add new video', new_video_path %>
-<% if @videos.any? %>
+<div class="jumbotron">
   <div class="container">
-    <h1>Latest videos</h1>
- 
-    <div id="player-wrapper"></div>
- 
-    <% @videos.in_groups_of(3) do |group| %>
-      <div class="row">
-        <% group.each do |video| %>
-          <% if video %>
-            <div class="col-md-4">
-              <div class="yt_video thumbnail">
-              <div class="embed-container">
-                <%=embed(video.link) %>
-                </div>
- 
-                <div class="caption">
-                  <h5><%= video.title %></h5>
-                  <p>Author: <b><%= video.author %></b></p>
-                  <p>Duration: <b><%= video.duration %></b></p>
-                  <p>
-                    <span class="glyphicon glyphicon glyphicon-thumbs-up"></span> <%= video.likes %>
-                    <span class="glyphicon glyphicon glyphicon-thumbs-down"></span> <%= video.dislikes %>
-                  </p>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    <% end %>
+    <center>
+    <h1>Share your videos </h1>
+    <p>Click the button below to share your video from YouTube.</p>
+    
+      <%= link_to 'Add video now!', new_video_path, class: 'btn btn-primary btn-lg' %>
+    </center>
   </div>
-<% end %>
+</div>
+ 
+
+
+<div id="wrapper" style="padding-bottom: 230px;">
+<div class="container">
+	<!--<% if @videos.any? %> -->
+	<div class="row">
+		<% @videos.each do |video| %>
+		<div class="col-md-4 ">
+            			<div class="row">
+            				<div class="col-sm-12">
+								<div class="well well-sm">
+										<div class="thumb-overlay">
+											 <%=embed(video.link)%>	
+										</div>
+										<span class="video-title title-truncate m-t-5"><%=video.title%></span>
+									</a>
+									<div class="video-added">
+										<%=video.author%>
+									</div>
+									<div class="video-views pull-left">
+										<%=video.duration%>
+									</div>
+									<div class="video-rating pull-right no-rating">
+										<span class="glyphicon glyphicon glyphicon-thumbs-up"></span> <%= video.likes %>
+                    			    <span class="glyphicon glyphicon glyphicon-thumbs-down"></span> <%= video.dislikes %>
+									</div>		
+									<div class="clearfix"></div>
+									
+								</div>				
+							</div>		
+							<!--/.End of Col -->	
+						</div>
+						<!--/.End of ROW-->
+		</div>
+		<!--/.END of COL-->	
+		<%end%>
+    </div>
+	<!--/.END of ROW-->
+	<!--<% end %>-->
+</div>
+</div>	
