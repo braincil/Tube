@@ -1,8 +1,8 @@
 module VideosHelper
 
 	def embed (link)
-		youtube_id =  /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
-		content_tag(:iframe, nil, src: "//www.youtube.com/embed/#{link}")		 
+		link_id = link.split("=").last
+		content_tag(:iframe, nil, src: "//www.youtube.com/embed/#{link_id}")		 
 	end
 
 end

@@ -1,6 +1,7 @@
 class Video < ActiveRecord::Base
-
 	before_create :video_info
+	validates :link, presence: true
+
 
 
 	def video_info
