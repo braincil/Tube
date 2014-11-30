@@ -1,0 +1,35 @@
+<h1><center>ALL VIDEOS</center></h1>
+<%=link_to 'add new video', new_video_path %>
+<% if @videos.any? %>
+  <div class="container">
+    <h1>Latest videos</h1>
+ 
+    <div id="player-wrapper"></div>
+ 
+    <% @videos.in_groups_of(3) do |group| %>
+      <div class="row">
+        <% group.each do |video| %>
+          <% if video %>
+            <div class="col-md-4">
+              <div class="yt_video thumbnail">
+              <div class="embed-container">
+                <%=embed(video.link) %>
+                </div>
+ 
+                <div class="caption">
+                  <h5><%= video.title %></h5>
+                  <p>Author: <b><%= video.author %></b></p>
+                  <p>Duration: <b><%= video.duration %></b></p>
+                  <p>
+                    <span class="glyphicon glyphicon glyphicon-thumbs-up"></span> <%= video.likes %>
+                    <span class="glyphicon glyphicon glyphicon-thumbs-down"></span> <%= video.dislikes %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

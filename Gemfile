@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'youtube_it', '~> 2.4.2'
 
+gem 'yt', '~> 0.13.7'
 
 
 

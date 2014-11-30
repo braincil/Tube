@@ -130,6 +130,8 @@ GEM
       oauth (~> 0.4.4)
       oauth2 (~> 1.0.0)
       simple_oauth (>= 0.1.5)
+    yt (0.13.7)
+      activesupport
 
 PLATFORMS
   x86-mingw32
@@ -146,3 +148,4 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   youtube_it (~> 2.4.2)
+  yt (~> 0.13.7)
