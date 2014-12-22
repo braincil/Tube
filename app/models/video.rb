@@ -17,6 +17,10 @@ class Video < ActiveRecord::Base
 	end
 
 
+	def poster
+		link_id = link.split("=").last
+		"https://img.youtube.com/vi/#{link_id}/hqdefault.jpg"
+	end
 
 
 	private
